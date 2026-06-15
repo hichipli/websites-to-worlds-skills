@@ -1,0 +1,20 @@
+{
+  "name": "websites-to-worlds-skills",
+  "interface": {
+    "displayName": "Websites to Worlds Skills"
+  },
+  "plugins": [
+    {
+      "name": "websites-to-worlds",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/hichipli/websites-to-worlds-skills.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

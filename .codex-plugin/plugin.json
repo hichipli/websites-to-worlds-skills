@@ -1,0 +1,38 @@
+{
+  "name": "websites-to-worlds",
+  "version": "0.1.0",
+  "description": "Turn an existing website, portfolio, product page, documentation site, or content library into a polished, content-complete, explorable 3D web world with Three.js or a similar web-3D stack.",
+  "author": {
+    "name": "hichipli",
+    "url": "https://github.com/hichipli"
+  },
+  "homepage": "https://github.com/hichipli/websites-to-worlds-skills",
+  "repository": "https://github.com/hichipli/websites-to-worlds-skills",
+  "license": "MIT",
+  "keywords": [
+    "three.js",
+    "webgl",
+    "3d",
+    "portfolio",
+    "world-building",
+    "agent-skills",
+    "game-ui"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Websites to Worlds",
+    "shortDescription": "Turn sites into explorable 3D worlds",
+    "longDescription": "A portable agent skill that guides Codex through turning an existing website into a playable, content-complete 3D world with first-person navigation, HUD, onboarding, interaction, browser QA, and a maintainable update path.",
+    "developerName": "hichipli",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/hichipli/websites-to-worlds-skills",
+    "defaultPrompt": [
+      "Use $websites-to-worlds:websites-to-worlds to turn this website into a mature, content-complete, explorable 3D world."
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "websites-to-worlds",
+  "displayName": "Websites to Worlds",
+  "version": "0.1.0",
+  "description": "Turn an existing website, portfolio, or content site into a polished, content-complete, explorable 3D web world (Three.js or similar) with a HUD, onboarding, interaction, browser QA, and a maintainable update path.",
+  "author": {
+    "name": "hichipli",
+    "url": "https://github.com/hichipli"
+  },
+  "homepage": "https://github.com/hichipli/websites-to-worlds-skills",
+  "repository": "https://github.com/hichipli/websites-to-worlds-skills",
+  "license": "MIT",
+  "keywords": ["three.js", "webgl", "3d", "portfolio", "world-building", "skill", "game-ui"]
+}

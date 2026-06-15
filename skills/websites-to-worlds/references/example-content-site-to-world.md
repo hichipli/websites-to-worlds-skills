@@ -2,6 +2,16 @@
 
 Use this reference when building a content-rich personal site, portfolio, research profile, product site, or documentation site as a 3D world. Do not copy the theme blindly; copy the engineering path.
 
+## Live Build
+
+This example is grounded in a real, shipped build you can inspect:
+
+- **World:** [The Ship — RV CHIP-01](https://www.hichipli.com/ship/), a first-person research vessel.
+- **Source site:** [hichipli.com](https://www.hichipli.com/), a research/portfolio personal site.
+- **What carried over:** about/bio, news, the full publication list, awards, service, every project, profiles, and contact — all reachable in-world or in panels, nothing dropped.
+
+When you need to picture the target — spawn, gallery of projects, a publications console, windows onto an exterior, onboarding, minimap, fast travel — open the live ship and walk it. Then reproduce the *engineering path* below for the user's own site and theme.
+
 ## Source Request
 
 The user wanted a mature first-person 3D experience under a subpath of an existing website. It needed all site information, a clear entry from the main site, themed spatial zones, a project gallery, a publication/content archive, environmental views, onboarding, keyboard guidance, panels, menus, minimap, fast travel, and high-quality game feel without disrupting the main site.
