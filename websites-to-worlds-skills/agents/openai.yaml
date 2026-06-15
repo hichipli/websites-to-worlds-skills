@@ -1,0 +1,4 @@
+interface:
+  display_name: "Websites to Worlds Skills"
+  short_description: "Turn sites into explorable 3D worlds"
+  default_prompt: "Use $websites-to-worlds-skills to turn this website into a mature, explorable 3D world."
