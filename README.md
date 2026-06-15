@@ -12,6 +12,16 @@ Point any capable coding agent — Claude Code, Codex, Cursor — at this repo, 
 
 A first-person research vessel built from [hichipli.com](https://www.hichipli.com/) with this exact skill. Walk the gallery of projects, browse publications from a console, look out the windows at the system outside. Every fact on the flat site is in there — just spatial. That's the bar this skill aims for.
 
+## From site to world
+
+This reference started as a conventional personal academic website:
+
+![Screenshot of the original hichipli.com academic homepage before the 3D world transformation](docs/assets/hichipli-source-site.jpg)
+
+Then the same content became a first-person research vessel. This is a rough short capture for now, included just to make the output shape easier to understand: **[watch the Ship demo MP4](docs/assets/ship-demo-short.mp4)**.
+
+The workflow is self-contained by default: no external MCP server, proprietary asset pack, or prebuilt 3D template is required. The agent can build from the target site's existing content, local files, procedural geometry/materials, and ordinary browser QA; custom GLB, generated art, or extra tools are optional upgrades when the brief calls for them.
+
 ## Quick start — no install
 
 Open your website's repo in Claude Code, Codex, Cursor, or any coding agent, and **paste this**:
@@ -34,7 +44,7 @@ and let the agent ask:)
 - Devices:
 ```
 
-The agent reads the skill straight from GitHub, asks a few clarifying questions, and only builds once you confirm. Nothing to download.
+The agent reads the skill straight from GitHub, asks a few clarifying questions, and only builds once you confirm. Nothing to download, and no external MCP or asset library is required.
 
 **Already have the skill installed?** (see below) Just say:
 
@@ -60,6 +70,7 @@ Full per-agent steps: **[install.md](install.md)**.
 ```text
 AGENTS.md                          ← agent-native entry point (read this first if you're an AI)
 install.md                         ← per-agent install matrix
+docs/assets/                       ← README screenshots and temporary demo media
 .codex-plugin/                     ← Codex plugin manifest
 .agents/plugins/                   ← Codex repo marketplace entry
 .claude-plugin/                    ← Claude Code plugin + marketplace manifests
