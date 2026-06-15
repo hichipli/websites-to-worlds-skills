@@ -24,7 +24,9 @@ This reference started as a conventional personal academic website and became a 
       <img src="docs/assets/hichipli-source-site.jpg" alt="Screenshot of the original hichipli.com academic homepage before the 3D world transformation" width="100%">
     </td>
     <td width="50%">
-      <img src="https://websites-to-worlds-skills-cdn.hichipli.com/websites-to-worlds-ship-demo-2026-06-15.gif" alt="Animated demo of the Ship 3D world built from the hichipli.com academic homepage" width="100%">
+      <a href="https://vimeo.com/1201343885?fl=tl&fe=ec">
+        <img src="docs/assets/websites-to-worlds-ship-demo-poster-2026-06-15.jpg" alt="Open the Ship 3D world walkthrough built from the hichipli.com academic homepage" width="100%">
+      </a>
     </td>
   </tr>
 </table>
