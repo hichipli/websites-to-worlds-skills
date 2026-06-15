@@ -10,6 +10,12 @@ The `websites-to-worlds` skill encodes the full engineering path for turning an 
 
 This repo is **instructions, not a runtime**. There is no app to start here. You apply the skill inside the user's project.
 
+Distribution metadata is intentionally split by platform:
+
+- `.codex-plugin/plugin.json` and `.agents/plugins/marketplace.json` package the collection for Codex.
+- `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` package the collection for Claude Code.
+- `skills/websites-to-worlds/` remains the portable installable skill folder for any agent.
+
 ## What to read, in order
 
 1. **`skills/websites-to-worlds/SKILL.md`** — the workflow and the contract you must satisfy. Read this fully before writing any code.

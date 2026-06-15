@@ -49,8 +49,9 @@ For repeat use, install once so the skill is always available:
 | Agent | How |
 | --- | --- |
 | **Claude Code** | `/plugin marketplace add hichipli/websites-to-worlds-skills` → `/plugin install websites-to-worlds@websites-to-worlds-skills` |
-| **Codex** | copy `skills/websites-to-worlds/` into `~/.codex/skills/` |
-| **Cursor / other** | add `skills/websites-to-worlds/SKILL.md` to your project rules |
+| **Codex** | `codex plugin marketplace add hichipli/websites-to-worlds-skills --ref main` → `codex plugin add websites-to-worlds@websites-to-worlds-skills` |
+| **Codex local skill** | copy `skills/websites-to-worlds/` into `~/.codex/skills/` |
+| **Cursor / other** | vendor the whole `skills/websites-to-worlds/` folder and point project rules at `SKILL.md` |
 
 Full per-agent steps: **[install.md](install.md)**.
 
@@ -59,6 +60,8 @@ Full per-agent steps: **[install.md](install.md)**.
 ```text
 AGENTS.md                          ← agent-native entry point (read this first if you're an AI)
 install.md                         ← per-agent install matrix
+.codex-plugin/                     ← Codex plugin manifest
+.agents/plugins/                   ← Codex repo marketplace entry
 .claude-plugin/                    ← Claude Code plugin + marketplace manifests
 skills/websites-to-worlds/
   SKILL.md                         ← the workflow + the contract the agent must satisfy
@@ -82,7 +85,7 @@ Reference files load progressively, so the agent reads architecture detail when 
 
 Intentionally bounded. The `websites-to-worlds` skill helps an agent build one web-native 3D route that keeps the source content complete, maintainable, and testable. It is **not** a game-engine template, a component library, or a one-click generator.
 
-This repo is a **skills collection** — a marketplace that ships one skill today (`websites-to-worlds`) with room to grow. Future skills (asset pipelines, mobile/perf passes, alternate world genres) drop into `skills/<name>/` and register as additional plugins in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json), without touching the existing skill.
+This repo is a **skills collection** — a marketplace that ships one skill today (`websites-to-worlds`) with room to grow. Future skills (asset pipelines, mobile/perf passes, alternate world genres) drop into `skills/<name>/` and register in the Codex and Claude marketplace manifests, without touching the existing skill.
 
 ## License
 
