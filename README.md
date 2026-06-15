@@ -24,10 +24,9 @@ This reference started as a conventional personal academic website and became a 
       </a>
     </td>
     <td width="50%">
-      <a href="https://vimeo.com/1201343885?fl=tl&fe=ec">
-        <img src="docs/assets/websites-to-worlds-ship-demo-poster-2026-06-15.jpg" alt="Open the Ship 3D world walkthrough built from the hichipli.com academic homepage" width="100%">
-      </a>
-    </td>
+      
+https://github.com/user-attachments/assets/474593c5-1d2b-423b-9ac5-be605ce661c1
+
   </tr>
 </table>
 
