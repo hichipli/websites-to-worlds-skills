@@ -1,0 +1,19 @@
+{
+  "name": "websites-to-worlds-skills",
+  "owner": {
+    "name": "hichipli",
+    "url": "https://github.com/hichipli"
+  },
+  "description": "Skills for turning websites into explorable 3D web worlds.",
+  "plugins": [
+    {
+      "name": "websites-to-worlds",
+      "source": "./",
+      "description": "Turn an existing website into a polished, content-complete, explorable 3D web world with Three.js or a similar web-3D stack.",
+      "homepage": "https://github.com/hichipli/websites-to-worlds-skills",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["three.js", "webgl", "3d", "portfolio", "world-building"]
+    }
+  ]
+}

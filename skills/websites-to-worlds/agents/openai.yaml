@@ -1,0 +1,12 @@
+interface:
+  display_name: "Websites to Worlds"
+  short_description: "Turn a website into an explorable 3D world"
+  default_prompt: "Use websites-to-worlds to turn this website into a mature, content-complete, explorable 3D world."
+  keywords:
+    - three.js
+    - webgl
+    - 3d
+    - portfolio
+    - world-building
+    - game-ui
+  example_url: "https://www.hichipli.com/ship/"
