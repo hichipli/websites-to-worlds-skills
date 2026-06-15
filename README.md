@@ -14,14 +14,14 @@ It starts from the site's own content and code, so you do not need a separate MC
 
 A first-person research vessel built from [hichipli.com](https://www.hichipli.com/) with this exact skill. Walk the gallery of projects, browse publications from a console, look out the windows at the system outside. Every fact on the flat site is in there — just spatial. That's the bar this skill aims for.
 
-## From site to world
-
 This reference started as a conventional personal academic website and became a first-person research vessel. The side-by-side view below shows the source site and the explorable world it became.
 
 <table>
   <tr>
     <td width="50%">
-      <img src="docs/assets/hichipli-source-site.jpg" alt="Screenshot of the original hichipli.com academic homepage before the 3D world transformation" width="100%">
+      <a href="https://www.hichipli.com/">
+        <img src="docs/assets/hichipli-source-site.jpg" alt="Open the original hichipli.com academic homepage before the 3D world transformation" width="100%">
+      </a>
     </td>
     <td width="50%">
       <a href="https://vimeo.com/1201343885?fl=tl&fe=ec">
