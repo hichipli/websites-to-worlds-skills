@@ -21,6 +21,7 @@ Distribution metadata is intentionally split by platform:
 1. **`skills/websites-to-worlds/SKILL.md`** — the workflow and the contract you must satisfy. Read this fully before writing any code.
 2. **`skills/websites-to-worlds/references/`** — load progressively, only when you reach that phase:
    - `architecture-patterns.md` — before choosing file layout, modules, data flow, performance tactics.
+   - `interaction-state-machine.md` — before implementing first-person controls, pointer lock, panels, map, pause, resume capture, or touch behavior.
    - `example-content-site-to-world.md` — the concrete end-to-end build (the live Ship below).
    - `quality-rubric.md` — before final polish and at handoff.
    - `validation-playbook.md` — before browser QA and screenshots.
@@ -31,8 +32,9 @@ Distribution metadata is intentionally split by platform:
 1. **Lock the brief first (step 0).** Skim the user's site, then propose a brief — theme/metaphor, subpath, scope, must-have content, target devices — with options and a recommended default, and get one confirmation before building. Don't guess your way into a wrong theme or scope.
 2. Inspect the **user's** repo — routes, deployment shape, design tokens, assets, and canonical content sources.
 3. Follow the workflow in `SKILL.md`. Do not skip the greybox or the validation steps.
-4. Hold yourself to the contract outcomes in `SKILL.md` (brief confirmed, content complete, playable, self-orienting, ships where the site ships, verified not asserted).
-5. In your handoff, report the route/URL, files changed, systems implemented, validation evidence (screenshots, console), and any known limitations.
+4. Treat pointer lock plus overlays as a state machine, not scattered booleans; use the interaction reference before implementing `E`, `Esc`, close, map, pause, resume capture, or touch controls.
+5. Hold yourself to the contract outcomes in `SKILL.md` (brief confirmed, content complete, playable, self-orienting, ships where the site ships, verified not asserted).
+6. In your handoff, report the route/URL, files changed, systems implemented, validation evidence (screenshots, console), browser warnings, interaction regression results, git state, and any known limitations.
 
 ## Live reference build
 

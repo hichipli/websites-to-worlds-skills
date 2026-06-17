@@ -87,11 +87,12 @@ skills/websites-to-worlds/
   agents/openai.yaml               ← Codex metadata
   references/
     architecture-patterns.md       ← file layout, modules, data flow, performance
+    interaction-state-machine.md   ← pointer lock, overlays, pause, map, touch states
     example-content-site-to-world.md← the end-to-end Ship build, generalized
     quality-rubric.md              ← pass/fail checklist before handoff
-    validation-playbook.md         ← browser QA, screenshots, perf review
+    validation-playbook.md         ← browser QA, interaction matrix, screenshots, perf review
   scripts/
-    probe-three-scene.mjs          ← Playwright smoke test (screenshots, console, scene stats)
+    probe-three-scene.mjs          ← Playwright smoke test (screenshots, console, debug stats)
 ```
 
 ## How it works

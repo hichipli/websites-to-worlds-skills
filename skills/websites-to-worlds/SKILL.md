@@ -46,10 +46,10 @@ Pick a metaphor that *explains* the content: archive, lab, museum, campus, comma
 Put substantial 3D work on an isolated subpath (`/world/`, `/explore/`, `/gallery/`, `/ship/`, `/lab/`). Split data, world geometry, materials, player controls, interactions, audio, HUD, panels, and maps into separate modules. Decide early whether to vendor dependencies for static hosting or use the repo's package/build system. **Read `references/architecture-patterns.md` before laying out files.**
 
 ### 4. Build a playable greybox first
-Establish world scale, spawn, navigation paths, room boundaries, collision, interactable placement, and sightlines. Make it *usable* — movement, camera, prompts, interaction, pause/menu, return path — before any polish. Use procedural geometry, curated GLB assets, or generated assets as the task demands, but include every required asset locally or in the repo's pipeline. No external-CDN dependencies when the site is statically hosted.
+Establish world scale, spawn, navigation paths, room boundaries, collision, interactable placement, and sightlines. Make it *usable* — movement, camera, prompts, interaction, pause/menu, map, pointer-lock recovery, touch fallback, and return path — before any polish. **Read `references/interaction-state-machine.md` before implementing first-person controls plus overlays.** Use procedural geometry, curated GLB assets, or generated assets as the task demands, but include every required asset locally or in the repo's pipeline. No external-CDN dependencies when the site is statically hosted.
 
 ### 5. Add mature world feel
-Layer rough materials, baked or procedural texture detail, readable signage, props, ambient motion, and sound. Add lived-in detail and small optional interactions that fit the concept. If windows or exterior views exist, model enough exterior context that rooms don't float in a void. Avoid the failure set: random glowing blocks, particle fog that reads as broken, floating props, z-fighting planes, signs jammed in doorways.
+Layer rough materials, baked or procedural texture detail, readable signage, props, ambient motion, and sound. After the greybox works, do a dedicated visual polish pass rather than treating material/model quality as incidental. Add lived-in detail and small optional interactions that fit the concept. If windows or exterior views exist, model enough exterior context that rooms don't float in a void. Avoid the failure set: random glowing blocks, particle fog that reads as broken, floating props, z-fighting planes, signs jammed in doorways.
 
 ### 6. Present long content through game-grade UI
 3D objects are teasers and affordances; long text, publication lists, project detail, forms, tables, and links live in DOM overlay panels. Provide a HUD, a crosshair or touch affordance, a progressive tutorial, a map/directory, fast travel when useful, pause/settings, a WebGL fallback, and clear exit/back links. If it must work on phones, make touch interaction explicit.
@@ -76,6 +76,7 @@ Run the repo-appropriate syntax/type/build checks. Serve locally, verify asset U
 Load these progressively — don't read all four up front.
 
 - `references/architecture-patterns.md` — before choosing structure, module boundaries, data flow, interaction patterns, or performance tactics.
+- `references/interaction-state-machine.md` — before implementing first-person controls, pointer lock, panels, maps, pause menus, resume capture, or touch behavior.
 - `references/example-content-site-to-world.md` — when building a portfolio, profile, research site, or content-rich personal site, or when you want a concrete end-to-end example (the live Ship build).
 - `references/quality-rubric.md` — before final polish, and again before handoff.
 - `references/validation-playbook.md` — before running browser QA, screenshots, or performance checks.

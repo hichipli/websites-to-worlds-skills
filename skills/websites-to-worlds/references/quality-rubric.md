@@ -21,11 +21,16 @@ Use this before final handoff. A good Websites to Worlds delivery should pass ea
 
 ## Visual Maturity
 
+- A dedicated visual polish pass happened after the playable greybox, not before.
 - Materials have roughness, texture, seams, wear, or construction logic.
+- Materials use maps, procedural noise, CanvasTexture detail, or simple atlases where flat colors make the world feel unfinished.
 - Lighting supports navigation and mood without washing out screens.
 - Screens and signs face the expected player approach.
+- Signs are readable at the intended approach distance and are not occluded by props, door frames, particles, or bloom.
 - Windows reveal a believable exterior or environment.
+- Each major zone has its own model identity, not just the same room with relabeled panels.
 - Props are attached to floors, walls, desks, rails, or ceilings.
+- Repeated environmental detail is instanced, batched, or procedurally generated instead of copied as many unrelated meshes.
 - No random decorative fragments read as broken textures or missing assets.
 - No obvious z-fighting, floating signs, wall clipping, doorway obstruction, or text overlap.
 
@@ -40,11 +45,14 @@ Use this before final handoff. A good Websites to Worlds delivery should pass ea
 ## Engineering
 
 - Route works under the intended deployment path.
+- Static subpath behavior is verified for root vs project-page deployment, route-relative assets, and trailing slashes.
 - Dependencies are vendored or package-managed consistently.
 - Static assets return 200 in local server checks.
 - Modules pass syntax/type/build checks.
 - Browser console is free of actionable errors.
+- Expected browser automation noise is separated from real app errors in the validation notes.
 - Core scene is nonblank in desktop and mobile viewports.
+- `window.__worldDebug` or an equivalent debug hook reports scene, UI, and content stats when practical.
 - Performance is acceptable with low-power controls if needed.
 - The code documents where future content updates should happen.
 

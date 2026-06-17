@@ -91,6 +91,15 @@ if (values['start-selector']) {
 }
 
 const report = await page.evaluate(() => {
+  const safeDebugCall = (name) => {
+    try {
+      const fn = window.__worldDebug?.[name];
+      return typeof fn === 'function' ? fn() : null;
+    } catch (err) {
+      return { error: err?.message || String(err) };
+    }
+  };
+
   const canvases = [...document.querySelectorAll('canvas')].map((canvas) => {
     const rect = canvas.getBoundingClientRect();
     return {
@@ -103,26 +112,35 @@ const report = await page.evaluate(() => {
     };
   });
 
+  const debugSceneStats = safeDebugCall('getSceneStats');
+  const debugUiState = safeDebugCall('getUiState');
+  const debugContentStats = safeDebugCall('getContentStats');
+  const debugScreenshotLabels = safeDebugCall('getScreenshotLabels');
+
   const scene = window.__scene;
-  const sceneStats = scene ? { meshes: 0, lights: 0, materials: 0 } : null;
-  if (scene) {
+  const legacySceneStats = scene ? { meshes: 0, lights: 0, materials: 0 } : null;
+  if (scene && !debugSceneStats) {
     const materials = new Set();
     scene.traverse((obj) => {
       if (obj.isMesh) {
-        sceneStats.meshes += 1;
+        legacySceneStats.meshes += 1;
         if (Array.isArray(obj.material)) obj.material.forEach((m) => materials.add(m.uuid));
         else if (obj.material) materials.add(obj.material.uuid);
       }
-      if (obj.isLight) sceneStats.lights += 1;
+      if (obj.isLight) legacySceneStats.lights += 1;
     });
-    sceneStats.materials = materials.size;
+    legacySceneStats.materials = materials.size;
   }
 
   return {
     title: document.title,
     url: location.href,
     canvases,
-    sceneStats,
+    sceneStats: debugSceneStats || legacySceneStats,
+    uiState: debugUiState,
+    contentStats: debugContentStats,
+    screenshotLabels: debugScreenshotLabels,
+    debugSource: window.__worldDebug ? 'window.__worldDebug' : (scene ? 'window.__scene' : null),
     bodyTextSample: document.body.innerText.replace(/\s+/g, ' ').slice(0, 400)
   };
 });
@@ -140,5 +158,5 @@ await browser.close();
 
 const actionable = consoleMessages.filter((m) => m.type === 'error' || m.type === 'pageerror');
 console.log(`Websites to Worlds probe wrote ${outDir}`);
-console.log(`Canvases: ${report.canvases.length}; started: ${started}; actionable errors: ${actionable.length}`);
+console.log(`Canvases: ${report.canvases.length}; started: ${started}; debug: ${report.debugSource || 'none'}; actionable errors: ${actionable.length}`);
 if (values.strict && actionable.length) process.exit(1);

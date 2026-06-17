@@ -54,6 +54,16 @@ Collect:
 - Screenshots.
 - Basic scene stats if debug hooks exist, such as mesh/light counts.
 
+Prefer `window.__worldDebug` when available:
+
+```js
+window.__worldDebug?.getSceneStats?.()
+window.__worldDebug?.getUiState?.()
+window.__worldDebug?.getContentStats?.()
+```
+
+If the project only exposes `window.__scene`, use it as a fallback and note that the debug surface should be upgraded.
+
 Optional helper:
 
 ```bash
@@ -62,6 +72,34 @@ node <skill>/scripts/probe-three-scene.mjs \
   --out /tmp/websites-to-worlds-probe \
   --start-selector "#start, #board-btn, [data-start]"
 ```
+
+## Interaction Regression Matrix
+
+Run these in a real browser after the main walkthrough. Record pass/fail and any console output:
+
+| Case | Expected result |
+| --- | --- |
+| Enter world | Landing transitions to walking state; movement/look prompt is visible. |
+| Open panel with `E` | Nearest interactable opens exactly one panel and world interaction pauses. |
+| Close panel with `E` | Current panel closes and does not immediately reopen. |
+| Close panel with `Esc` | Panel closes or returns to the intended previous state without opening pause unless designed that way. |
+| Close panel button | Click closes the panel and consumes the click; nearby interactable does not retrigger. |
+| Open/close pause with `Esc` | Pause/menu opens from walking and resumes through a clear capture flow. |
+| Map open/close | Map opens from walking, closes cleanly, and fast travel sets a valid position/yaw. |
+| Resume pointer lock | Resume click restores capture without activating the object under the crosshair. |
+| Return home/exit | Exit path returns to the normal site or prior page without trapping the user. |
+| Touch open controls | Tap prompts, map, pause, close, and return controls work, or a clear unsupported fallback appears. |
+
+If the app supports both keyboard/mouse and touch, verify that prompts say "Press E / Tap" or switch copy based on input mode. A touch build that still says only "Press E" fails the matrix.
+
+## Browser Automation Noise
+
+Headless Chromium and pointer lock can produce warnings that are not app regressions. Classify findings before reporting:
+
+- **Actionable app errors:** uncaught exceptions, module 404s, missing textures/models, WebGL context loss caused by app code, blank canvases, broken state transitions, unhandled promise rejections from loaders, and accessibility-critical overlay failures.
+- **Likely automation noise:** pointer-lock permission warnings in headless mode, GPU blocklist messages, WebGL software-renderer notices, transient audio-context warnings before user gesture, and browser extension noise.
+
+Do not ignore noise silently. Put it in the handoff under "browser warnings observed" and explain why it was not treated as a regression.
 
 ## Visual Review Prompts
 
@@ -99,4 +137,20 @@ Final response should briefly state:
 - Files changed.
 - Key systems implemented.
 - Validation commands and browser coverage.
+- Interaction matrix results.
+- Browser warnings observed, separated from actionable errors.
 - Known limitations or unverified areas.
+- Git state: untracked, staged, committed, or not committed files relevant to the work.
+
+Template:
+
+```text
+Route:
+Changed files:
+Implemented:
+Validation passed:
+Interaction matrix:
+Browser warnings observed:
+Known limitations:
+Git state:
+```

@@ -29,6 +29,13 @@ world/
 
 Adapt names to the concept, but keep the boundaries. The main route should link into the world without losing its own purpose.
 
+For static hosts and GitHub Pages, verify the exact deployed path early:
+
+- Prefer route-relative asset URLs inside the world route, or derive asset URLs from a route base such as `import.meta.url`, the repo base path, or the app router base.
+- Avoid root-absolute URLs like `/world/js/main.js` unless the site truly deploys at the domain root.
+- Test both `<route>` and `<route>/` behavior. A missing trailing slash can break relative modules, textures, or vendored dependencies on static hosts.
+- If the host requires rewrites, redirects, `_headers`, `_redirects`, or `404.html` routing, document the expected behavior before handoff.
+
 ## Data Flow
 
 - Keep canonical sources canonical. Import or load existing data when possible.
@@ -81,6 +88,34 @@ A mature web 3D scene usually needs:
 - A map, directory, or teleport system if the world has multiple zones.
 - Persistence for settings and visited progress when useful.
 
+For first-person controls plus DOM overlays, use an explicit state machine. Read `interaction-state-machine.md` before implementing pointer lock, panel close, Escape, pause, map, resume capture, or touch behavior.
+
+## Debug Contract
+
+Expose a small serializable debug surface in non-production builds or harmlessly in production:
+
+```js
+window.__worldDebug = {
+  getSceneStats() {
+    return { meshes, lights, materials, triangles, drawCalls };
+  },
+  getUiState() {
+    return { mode, activePanelId, activeZoneId, pointerLocked, inputMode };
+  },
+  getContentStats() {
+    return { projects, publications, links, stations, representedItems, missingItems };
+  },
+  getScreenshotLabels() {
+    return [
+      { id: 'spawn', label: 'Spawn view' },
+      { id: 'projects', label: 'Projects zone' }
+    ];
+  }
+};
+```
+
+Values may be approximate, but they must be JSON-serializable and safe to call from Playwright. Keep legacy helpers such as `window.__scene` only as optional fallbacks; validation should prefer `window.__worldDebug`.
+
 ## Performance Patterns
 
 - Merge static geometry by material.
@@ -101,4 +136,3 @@ For a subpath world attached to an existing site:
 - Add return links from landing, pause/help, and at least one in-world panel.
 - Update metadata, canonical URL, sitemap, README or developer notes, and agent-readable summaries when the repo uses them.
 - Keep language integrated. The world is an edition or mode of the site, not an unrelated toy, unless the user asks for a separate demo.
-
