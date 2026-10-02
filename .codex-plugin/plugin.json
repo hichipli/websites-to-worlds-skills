@@ -1,6 +1,6 @@
 {
   "name": "websites-to-worlds",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Turn an existing website, portfolio, product page, documentation site, or content library into a polished, content-complete, explorable 3D web world with Three.js or a similar web-3D stack.",
   "author": {
     "name": "hichipli",

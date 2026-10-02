@@ -81,3 +81,9 @@ Before handoff, test these transitions in a real browser:
 - Map fast travel returns to walking with sane position/yaw.
 - Pointer lock lost by clicking outside or pressing Esc behaves intentionally.
 - Touch open/close/map/pause works, or touch fallback appears.
+
+## Held input and alternate views
+
+Track movement as key/pointer down state, not a toggle or a repeated keydown timer. Clear held input and velocity on blur, visibility loss, pointer-lock loss, modal entry and touch cancellation; process release events even while movement is disabled. Repeat-key events must not reopen or toggle an action.
+
+For exterior orbit, telescope or seated views, add a mode only when that interaction exists. Save the player pose, suspend walking, expose an obvious exit on keyboard and touch, and restore a collision-safe pose on exit. A zoomed instrument view keeps its original informational content available alongside it. Do not auto-recapture the pointer without the browser-required user gesture.

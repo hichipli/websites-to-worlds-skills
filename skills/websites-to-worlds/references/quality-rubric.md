@@ -1,6 +1,16 @@
 # Quality Rubric
 
-Use this before final handoff. A good Websites to Worlds delivery should pass each category.
+Use this before final handoff. Record evidence or mark unverified; do not self-award a numeric quality score. Missing required content, trapped input, inaccessible reading, broken routes or unrelated release changes block release regardless of visual polish.
+
+## Creative Review
+
+- Explain why the chosen topology and main action belong to this subject. Compare the rejected alternatives; changing colors or room names is not a different concept.
+- A visitor can describe one memorable action and its visible consequence. Opening text alone does not satisfy this.
+- Arrival, first success, reveal and a quieter return form a readable sequence. Timing targets are hypotheses until tested with newcomers.
+- At least one human detail comes from real source context, without inventing biography or copying the Ship's pet into unrelated worlds.
+- Required information has a direct accessible route independent of optional challenges.
+- Review actual play and screenshots for composition, circulation and the exterior silhouette; JSON validation cannot judge these.
+- When available, observe a first-time non-gamer without coaching. Record where they hesitate rather than calling the experience intuitive.
 
 ## Content Completeness
 

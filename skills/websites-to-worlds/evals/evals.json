@@ -1,0 +1,23 @@
+{
+  "skill_name": "websites-to-worlds",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan only; do not build a website or access a live service. The brief is approved: turn a fictional coastal ecology research website into a 3-minute explorable 3D edition at /tidelab/, desktop and touch with a readable fallback. Content: researcher bio, six field studies, twelve publications, a salinity dataset, contact and accessibility notes. All existing material must remain freely accessible; no login. Audience: curious first-time non-gamers and journalists. Theme: an inhabited tidal field station, not a spaceship. Need memorable exploration and a short shareable real-play moment. The current site and unrelated experimental-design branch must remain untouched. Deliver a concise design-and-build plan with layout, visitor journey, meaningful interactions, content mapping, evidence to collect and release scope.",
+      "expected_output": "A subject-specific plan, distinct candidate topologies/actions, a visible consequence and return, direct access for all 22 brief-derived records, clearly labeled provisional facts and target budgets, whole-branch release isolation. A validated plan must not be called a tested build.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Plan only; no build or network. Brief approved: a bicycle repair collective wants its website transformed into /workshop/, a phone-first explorable 3D edition for people who rarely play games. Preserve eight repair guides, four booking links, prices, accessibility notes and contact. No puzzle may gate information. Theme: a lived-in repair workshop, not a spaceship, museum or research station. Need a meaningful playful action and a real 15-second shareable moment. Keep the existing site intact. Compare directions and deliver the journey, content mapping, validation and release scope. State assumptions instead of asking questions.",
+      "expected_output": "A workshop-specific action and consequence distinct from data comparison, touch-first circulation, direct guide/booking access, honest source assumptions, a coherent real-play moment and scoped release. No mandatory ship motifs, collectible gates or invented prices.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Plan a focused repair, not a redesign. An existing site-world has flickering shared walls, a sliding door protruding into a corridor, and a telescope upgrade that removed its original biography panel. A release branch descends from an unrelated experimental homepage redesign. Explain how you would diagnose, repair and verify these issues while preserving current work; do not run a build, change Git history or publish anything.",
+      "expected_output": "Restore informational access; identify shared-surface ownership and the full swept door volume; inspect the entire merge-base diff rather than only new commits; preserve experimental work. No wholesale new theme, blind depth-bias workaround or destructive reset.",
+      "files": []
+    }
+  ]
+}

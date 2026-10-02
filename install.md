@@ -11,10 +11,10 @@ Read https://github.com/hichipli/websites-to-worlds-skills (start with AGENTS.md
 then use the websites-to-worlds skill to turn THIS website into a mature,
 content-complete, explorable 3D world under a subpath.
 
-Before building anything, look at my site and ASK me a few short questions to
-lock the brief — world theme/metaphor, which subpath, scope, must-have vs
-optional content, and target devices. Offer concrete options with a recommended
-default so I can just pick. Only start building after I confirm.
+Inspect my content and release boundary first. Ask about material missing
+constraints; honor decisions I already supplied. Compare distinct concepts,
+then build one meaningful interaction before expanding the world.
+Keep the normal website and all required information accessible.
 
 (Optional — fill in if you already know what you want, otherwise leave blank
 and let the agent ask:)
@@ -24,7 +24,7 @@ and let the agent ask:)
 - Devices:
 ```
 
-The agent reads `AGENTS.md` first, then `skills/websites-to-worlds/SKILL.md`, then loads `references/` files as it needs them. It asks a few clarifying questions and only builds once you confirm. Nothing to download.
+The agent reads `AGENTS.md` first, then `skills/websites-to-worlds/SKILL.md`, then loads `references/` files as it needs them. It clarifies missing constraints and honors an already agreed brief. Nothing to download.
 
 Everything below installs the skill permanently so you can invoke it with just:
 

@@ -8,7 +8,7 @@ A portable **skills collection**. Today it ships exactly one skill — `websites
 
 The `websites-to-worlds` skill encodes the full engineering path for turning an existing website (portfolio, research site, product page, docs, content library) into a polished, content-complete, **explorable 3D web world** — first-person navigation, modeling, a HUD, onboarding, interaction, browser QA, and a maintainable update path. Built around Three.js or a similar web-3D stack.
 
-This repo is **instructions, not a runtime**. There is no app to start here. You apply the skill inside the user's project.
+This repo contains **instructions and small validation tools, not a game runtime**. There is no app to start here. You apply the skill inside the user's project.
 
 Distribution metadata is intentionally split by platform:
 
@@ -29,18 +29,22 @@ Distribution metadata is intentionally split by platform:
 
 ## How to use it
 
-1. **Lock the brief first (step 0).** Skim the user's site, then propose a brief — theme/metaphor, subpath, scope, must-have content, target devices — with options and a recommended default, and get one confirmation before building. Don't guess your way into a wrong theme or scope.
+1. Ground the brief in the real site. Ask only for material missing constraints. An already approved brief or explicitly delegated design choice does not need another confirmation.
 2. Inspect the **user's** repo — routes, deployment shape, design tokens, assets, and canonical content sources.
 3. Follow the workflow in `SKILL.md`. Do not skip the greybox or the validation steps.
 4. Treat pointer lock plus overlays as a state machine, not scattered booleans; use the interaction reference before implementing `E`, `Esc`, close, map, pause, resume capture, or touch controls.
-5. Hold yourself to the contract outcomes in `SKILL.md` (brief confirmed, content complete, playable, self-orienting, ships where the site ships, verified not asserted).
+5. Hold yourself to the contract outcomes in `SKILL.md` (brief grounded, content complete, playable, self-orienting, ships where the site ships, verified not asserted).
 6. In your handoff, report the route/URL, files changed, systems implemented, validation evidence (screenshots, console), browser warnings, interaction regression results, git state, and any known limitations.
 
 ## Live reference build
 
 **The Ship — RV CHIP-01:** <https://www.hichipli.com/ship/>
-A first-person research vessel built from <https://www.hichipli.com/> using exactly this skill. Use it as the quality bar.
+A first-person research vessel built from <https://www.hichipli.com/> whose iteration lessons inform this skill. Use it as a craft reference, not a mandatory theme or layout.
 
 ## Non-goals
 
 This is not a game-engine template, not a component library, and not a one-click generator. It is the disciplined path a capable agent follows to deliver a real, maintainable site-world.
+
+## Maintaining the skill
+
+Keep the core workflow lean; route creative design to `world-design.md`, geometry repairs to `spatial-craft.md`, and distribution to `sharing-and-evidence.md`. Run `node tests/check-world.test.mjs` and syntax-check the probe after script changes. `evals/evals.json` contains fresh-context tasks for comparing skill revisions; plans are not proof of rendered-world quality. Keep both plugin manifest versions and agent metadata aligned.

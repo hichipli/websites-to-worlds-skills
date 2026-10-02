@@ -2,6 +2,12 @@
 
 Run validation after implementation and after meaningful visual changes.
 
+## Plan and Release Scope
+
+Run `check-world.mjs plan world-plan.json --inventory content-inventory.json` before building. Build the inventory independently from canonical source files; expand every required collection record. The example JSON files under `assets/` demonstrate the format, not a reusable theme. Connections are bidirectional, and `gated: true` means optional prerequisites. Station `access: direct` means no puzzle or achievement is needed. A connected graph does not prove collision clearance or implemented content parity: verify both in the browser.
+
+Before committing or publishing, run `check-world.mjs scope --base <target-ref> --allow <world-path>` with every intended path explicitly listed. Refresh the target ref when appropriate. This checks the aggregate diff from the merge base through the working tree, plus untracked files, including earlier commits. It does not prove deployment configuration is safe; inspect changed configuration and the PR diff separately. Never expand the allowlist merely to silence unrelated changes.
+
 ## Static Checks
 
 For plain ES modules:
@@ -73,12 +79,18 @@ node <skill>/scripts/probe-three-scene.mjs \
   --start-selector "#start, #board-btn, [data-start]"
 ```
 
+The helper needs Playwright and a browser already available in the calling environment. `--strict` fails on runtime errors, failed HTTP requests, no visible allocated canvas, or a requested start button that was not activated. Inspect `report.json`; a nonzero canvas can still be blank. The probe cannot certify visual quality, walking, pointer lock, accessibility or frame rate. Headless GPU timings are not representative hardware measurements. Use the environment's approved browser tooling instead when required.
+
 ## Interaction Regression Matrix
 
 Run these in a real browser after the main walkthrough. Record pass/fail and any console output:
 
 | Case | Expected result |
 | --- | --- |
+| Hold movement then release | Movement stops after a long hold; repeat across blur, pause and pointer-lock loss. |
+| Exterior / instrument view | Entry saves the player pose, movement stops, and exit restores a safe position and clear controls. |
+| Door animation | Closed, opening, open and closing states avoid wall, sign and corridor intersections. |
+| Required information | Compare implemented IDs with the independent source inventory, including content moved into a new interaction. |
 | Enter world | Landing transitions to walking state; movement/look prompt is visible. |
 | Open panel with `E` | Nearest interactable opens exactly one panel and world interaction pauses. |
 | Close panel with `E` | Current panel closes and does not immediately reopen. |
@@ -119,7 +131,9 @@ Look for:
 
 ## Performance Review
 
-Use DevTools, browser tooling, or practical observation:
+Measure before changing geometry. Record device/GPU, viewport, pixel ratio, browser, quality mode and route; compare the same warm-up and walkthrough before/after. Capture frame-time median and p95, draw calls, triangles and transfer size where available. Agree budgets for the target device instead of treating one universal FPS target as proof. Check batching preserves animation roots, culling bounds and material groups, and resize both renderer and composer.
+
+Use DevTools or available browser tooling:
 
 - Stable interaction at common laptop viewport sizes.
 - Pixel ratio capped on high-DPI screens.

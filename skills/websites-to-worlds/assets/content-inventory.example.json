@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "id": "bio", "source": "content/about.md", "required": true },
+    { "id": "study:salinity", "source": "content/studies/salinity.md", "required": true },
+    { "id": "contact", "source": "content/contact.md", "required": true }
+  ]
+}

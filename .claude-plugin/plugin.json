@@ -1,7 +1,7 @@
 {
   "name": "websites-to-worlds",
   "displayName": "Websites to Worlds",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Turn an existing website, portfolio, or content site into a polished, content-complete, explorable 3D web world (Three.js or similar) with a HUD, onboarding, interaction, browser QA, and a maintainable update path.",
   "author": {
     "name": "hichipli",
