@@ -1,92 +1,102 @@
 ---
 name: websites-to-worlds
-description: Turn an existing website, personal site, portfolio, product page, documentation site, or content library into a polished, content-complete, explorable 3D web world built with Three.js or a similar web-3D stack. Use when the user asks for a playable spatial version of a site, a first-person portfolio, an interactive showroom, a virtual gallery, a web museum, a campus, a spaceship, a lab, or a command center — anything with modeling, local assets, a HUD, onboarding, interaction, browser QA, and a maintainable update path. Works greenfield or as a serious upgrade to an existing web-3D experience.
+description: Build or improve an explorable 3D edition of an existing website, portfolio, research archive, product catalogue, documentation site or content library. Use for playable site-worlds, bedrooms, studies, gardens, cities, street corners, cafes, cinemas, virtual museums or other spatial editions, including requests for better level design, immersion, exploration, modeling, onboarding, performance and shareable moments. Preserve the original site and its content. Not for a decorative WebGL hero, an unrelated game, or a main-site redesign.
 ---
 
 # Websites to Worlds
 
-You are building a real, playable site-world — not a decorative WebGL wrapper over a hero section. This skill gives you the engineering path that takes a content website and turns a subroute of it into an explorable 3D experience that keeps every fact from the source, feels mature, and stays easy to update.
+Build a place with a reason to explore, not a sitemap with walls. Hold the quality floor steady; vary the world, route through it and actions it makes possible. The [Ship](https://www.hichipli.com/ship/) is evidence of construction and interaction problems solved, not a layout or aesthetic to reproduce.
 
-A live reference build exists: **[The Ship — RV CHIP-01](https://www.hichipli.com/ship/)**, a first-person research vessel built from [hichipli.com](https://www.hichipli.com/) using exactly this workflow. When you need to picture the target quality bar, that is it.
+## Adapt to the place, scale and intent
 
-## The contract
+A bedroom, study, garden, street corner, cafe, cinema, city or imagined setting is equally valid. Let the user's subject and aesthetic determine the form: everyday, historical, natural, stylized, fantastical or futuristic. No ship, enclosure, metal palette, screen, door, floor plan, first-person camera or game mechanic is mandatory.
 
-When this skill is active, hold yourself to these outcomes. Everything below is in service of them.
+One small room can be a complete world. Choose seated inspection, orbit, fixed views, walking or another accessible navigation model to fit it. A quiet reading or observation experience need not become a quest. For an already chosen place, refine composition and use rather than proposing unrelated themes. Scale comparison, pacing and documentation to the work; a single scene does not need multiple zones or a dramatic reveal.
 
-- **The brief is confirmed before building.** You don't guess the theme, scope, or subpath from a one-line request. You propose a brief with options and a default, and get one confirmation first (see step 0).
-- **Content stays complete.** Every meaningful fact on the source site is reachable in the world or its panels. You do not silently drop publications, projects, or links to make the 3D look cleaner.
-- **The world is playable, not just pretty.** Movement, look, interaction, orientation, and exit all work before you polish a single material.
-- **The build is self-orienting.** A first-time visitor knows what this is, how to move, what they can touch, and how to leave — without reading external docs.
-- **It ships where the site ships.** It runs under the real deployment path, dependencies are vendored or package-managed to match, and assets return 200.
-- **It is verified, not asserted.** You serve it, walk it in a real browser, capture screenshots across the journey, and read the console before you claim it works.
+## Invariants
 
-If you cannot meet one of these, say so explicitly in your handoff rather than papering over it.
+- Preserve the original website, canonical facts, links and update path. A new presentation must not silently remove information available in the old one.
+- Make required information reachable without winning a game, finding a secret, signing in or completing a tour. Keep direct reading and return-to-site routes.
+- Teach one action at a time. Make enter, orient, interact, pause and leave work for a first-time non-gamer.
+- Keep visible geometry, navigation and any collision or map consistent with the intended space. Multiple layers, open terrain and separate structures are valid; repair accidental overlaps and unusable gaps rather than prescribing a particular shape.
+- Ground claims in actual builds, screenshots, input tests and measurements. Passing a plan validator does not prove beauty, fun, accessibility or runtime correctness.
+- Keep the release scoped. Check the entire branch against the intended target, not just today's commits. Do not publish an experimental homepage because a world branch happens to descend from it.
 
-## Workflow
+## Route the work
 
-### 0. Lock the brief before you build
-Do not start modeling from a vague request. First skim the source site so your questions are informed, then **ask the user to confirm the brief** — offer concrete options with a recommended default for each so they can just pick:
+| Request | Start here | Required outcome |
+| --- | --- | --- |
+| New world / substantial redesign | 1–7 below | Distinct direction, playable slice, complete world, evidence |
+| Make an existing world more interesting | 2, then 3 and 6 | Change a meaningful action or discovery sequence; preserve content |
+| Fix modeling / movement / frame rate | 4 and 6 | Reproduce, repair shared cause, check neighboring cases |
+| Prepare a demo / launch | 5–7 | Actual-play proof, truthful share destination, scoped release |
+| Plan only | 1–3 | Source inventory, candidate comparison, validated plan; no claim of a tested build |
 
-- **World theme / metaphor** (archive, lab, museum, spaceship, command center, …) — propose 2–3 that fit *their* content.
-- **Subpath** where it lives (e.g. `/world/`, `/explore/`, `/ship/`).
-- **Scope** — full-site edition vs a focused slice (e.g. projects-only).
-- **Must-have vs optional content**, and what may overflow into a panel/index.
-- **Target devices** — desktop-only, or must it work on touch/mobile?
-- **Asset approach** — procedural, real GLB assets, or generated art.
+## 1. Establish the brief and release boundary
 
-If the user already specified these, confirm your understanding in one line and proceed. If they said "just do it" or left it open, still surface your proposed brief and **get one confirmation** before building — a wrong theme or scope is expensive to undo. Don't block on trivia you can decide yourself; ask only what changes the build.
+Inspect routes, deployment path, canonical content, assets, existing design and git state. Ask only for missing decisions that materially change scope: metaphor, route, audience/devices, content exclusions. Honor an already approved brief or delegated creative choice; state assumptions and proceed. Do not require a ritual confirmation or replace an explicit aesthetic.
 
-### 1. Ground the task in the real project
-Inspect the repo first — routes, deployment shape (`_headers`, `_redirects`, host), design tokens, fonts, assets, and the actual content sources. Identify canonical data: publication arrays, JSON, CMS exports, existing globals. Do **not** duplicate data that already has a durable source — read or import it. Preserve the existing site contract unless the user explicitly asks to replace it.
+Record the intended base branch and allowed change paths. Start from the intended base, preserving dirty work and unrelated branches. Follow the user's branch naming convention. Record permitted entry-link/metadata changes separately from the world route.
 
-### 2. Turn content into a spatial concept
-Pick a metaphor that *explains* the content: archive, lab, museum, campus, command center, observatory, showroom, factory, spaceship, mission control. Map every major content area to a readable place, station, prop, or interaction. Write the player promise in one sentence: what can the user do in the first 30 seconds?
+Export a small **independent content inventory** from the site's canonical data: `{"items":[{"id":"paper:123","source":"app/data/papers.ts","required":true}]}`. Enumerate individual records for collections; never derive this inventory from the new world, or missing items disappear from both sides. Exclude sensitive/unpublished material. Clarify genuine scope exclusions.
 
-### 3. Design the architecture before you model
-Put substantial 3D work on an isolated subpath (`/world/`, `/explore/`, `/gallery/`, `/ship/`, `/lab/`). Split data, world geometry, materials, player controls, interactions, audio, HUD, panels, and maps into separate modules. Decide early whether to vendor dependencies for static hosting or use the repo's package/build system. **Read `references/architecture-patterns.md` before laying out files.**
+## 2. Choose a direction that changes the experience
 
-### 4. Build a playable greybox first
-Establish world scale, spawn, navigation paths, room boundaries, collision, interactable placement, and sightlines. Make it *usable* — movement, camera, prompts, interaction, pause/menu, map, pointer-lock recovery, touch fallback, and return path — before any polish. **Read `references/interaction-state-machine.md` before implementing first-person controls plus overlays.** Use procedural geometry, curated GLB assets, or generated assets as the task demands, but include every required asset locally or in the repo's pipeline. No external-CDN dependencies when the site is statically hosted.
+Read [world-design.md](references/world-design.md). When the direction is open, consider up to three compact candidates differing in **topology, primary verb and reveal**, not merely palette or room labels. Tie each to this site's subject and audience. Recommend one and say why the others lose. Keep this comparison short; narrow repairs do not need new concepts.
 
-### 5. Add mature world feel
-Layer rough materials, baked or procedural texture detail, readable signage, props, ambient motion, and sound. After the greybox works, do a dedicated visual polish pass rather than treating material/model quality as incidental. Add lived-in detail and small optional interactions that fit the concept. If windows or exterior views exist, model enough exterior context that rooms don't float in a void. Avoid the failure set: random glowing blocks, particle fog that reads as broken, floating props, z-fighting planes, signs jammed in doorways.
+Describe the visitor promise, distinctive composition or landmark, appropriate activity, contextual detail and one deliberately omitted idea. Reading, observing, listening or choosing a viewpoint can be the activity; a mechanism is optional. If replacing the site's nouns leaves the same world, revise the concept. Avoid prescribing a spaceship, radial hub, neon console gallery or collectible quest to every brief.
 
-### 6. Present long content through game-grade UI
-3D objects are teasers and affordances; long text, publication lists, project detail, forms, tables, and links live in DOM overlay panels. Provide a HUD, a crosshair or touch affordance, a progressive tutorial, a map/directory, fast travel when useful, pause/settings, a WebGL fallback, and clear exit/back links. If it must work on phones, make touch interaction explicit.
+## 3. Author a playable route, then a vertical slice
 
-### 7. Keep future updates easy
-Route dynamic content through data manifests or existing source files. Derive counts, latest items, categories, labels, and station lists at boot — never hardcode "12 projects" in three places. Make overflow behavior explicit: extra projects still appear in an index, extra publications still appear in panels, new categories get generated stations or tabs when feasible.
+Create a compact `world-plan.json` using [the example](assets/world-plan.example.json) as a **format**, not a theme. Record zones/connections, content stations, a paced journey, action → visible change → reset, one shareable moment and a target-device budget. Keep existing project planning conventions; translate to this format only for the check.
 
-### 8. Validate like a game build
-Run the repo-appropriate syntax/type/build checks. Serve locally, verify asset URLs, collect console and page errors, and capture screenshots across the **full** player journey — desktop and mobile, key panels, every major zone, performance-sensitive scenes, and failure states. **Read `references/validation-playbook.md`** and use `scripts/probe-three-scene.mjs` when a headless browser probe is available.
+```sh
+node <skill>/scripts/check-world.mjs plan world-plan.json --inventory content-inventory.json
+```
 
-## Implementation rules
+Repair missing content, unreachable zones and broken references before modeling. A zone is a logical place, not necessarily a room. A single-zone plan uses an empty connections array; observation/reading plans may use only panel stations. Beats describe optional visitor moments, not compulsory timed levels. This checks the authored graph, not physical clearance.
 
-- Treat the 3D route as part of the product, not a detached demo. Entry copy, return paths, metadata, sitemap, agent discovery (`llms.txt`/`AGENTS.md`), and docs must reflect that relationship.
-- Prioritize orientation: the user should always know where they are, what is interactable, and how to leave.
-- Keep static work cheap — merge repeated static geometry by material, instance repeated props, reuse textures/materials, cap pixel ratio, avoid per-frame DOM writes.
-- Keep dynamic work intentional — animate only what improves presence, navigation, feedback, or delight.
-- Keep text readable — long text belongs in DOM UI, not tiny 3D meshes.
-- Prefer deterministic procedural assets for static sites and small worlds; prefer real optimized GLB/textures when the task needs recognizable objects or characters.
-- Account for every external asset: path, license/source, loading behavior, fallback, deployment compatibility.
-- Comment only where it explains non-obvious world-building, performance, or update behavior.
+Build one representative slice: arrival → readable landmark → meaningful interaction → visible response → return/exit. Test it in-browser before multiplying rooms or props. Compare the same slice in a quiet and busy view. Check whether navigation and presentation serve the intended experience before adding decoration. For a quiet room, a satisfying reading or viewing position can be the whole slice. Keep the complete reading index available from the start.
 
-## Reference routing
+## 4. Build a coherent inhabited world
 
-Load these progressively — don't read all four up front.
+Read [architecture-patterns.md](references/architecture-patterns.md) for modules/data/performance and [interaction-state-machine.md](references/interaction-state-machine.md) before controls/overlays. Use the existing stack; match the actual static/subpath deployment constraints. Prefer local or package-managed dependencies where reproducible/offline delivery matters.
 
-- `references/architecture-patterns.md` — before choosing structure, module boundaries, data flow, interaction patterns, or performance tactics.
-- `references/interaction-state-machine.md` — before implementing first-person controls, pointer lock, panels, maps, pause menus, resume capture, or touch behavior.
-- `references/example-content-site-to-world.md` — when building a portfolio, profile, research site, or content-rich personal site, or when you want a concrete end-to-end example (the live Ship build).
-- `references/quality-rubric.md` — before final polish, and again before handoff.
-- `references/validation-playbook.md` — before running browser QA, screenshots, or performance checks.
+Read [spatial-craft.md](references/spatial-craft.md) before detailed geometry. Where applicable, reconcile interior and exterior, shared surfaces, moving-object clearances and viewing cones. Choose materials and lighting appropriate to the aesthetic. Physical displays may need backs; intentionally holographic or translucent displays do not inherit that rule. Include supporting spaces only when useful to this setting and scope, not as a mandatory facilities checklist.
 
-## Portability
+Use procedural geometry for fitted architecture, optimized authored assets for subjects that must be recognizable, and generated images only when useful and licensed. Do not attempt a detailed animal by endlessly adding primitive spheres; judge its face, silhouette and scale. Record asset provenance and fallbacks. Preserve a no-WebGL reading path.
 
-This skill is agent-agnostic. The folder `skills/websites-to-worlds/` is the installable unit.
+Give long text to accessible DOM panels. Add direct navigation and a guided route for non-gamers; keep optional exploration rewarding. Maintain source-derived counts and collection overflow, not hardcoded display slots.
 
-- **Codex** — copy the folder under the skills directory (commonly `~/.codex/skills/websites-to-worlds`); see `agents/openai.yaml`.
-- **Claude Code** — install via the repo's plugin manifest (`/plugin marketplace add hichipli/websites-to-worlds-skills`), or point project rules at this `SKILL.md`.
-- **Cursor / other agents** — use `SKILL.md` as the primary instruction file and expose `references/` and `scripts/` as project rules or attached context.
+## 5. Make the real experience easy to share
 
-Once installed, invoke with: `Use websites-to-worlds to turn this site into a mature, explorable 3D world.` See the repo's `install.md` for exact per-agent steps.
+Read [sharing-and-evidence.md](references/sharing-and-evidence.md) when discovery, media or launch matters. When sharing is requested, identify an authentic interaction, view or transition that communicates without audio, a recoverable direct link and an obvious path to the owner's work. Frame actual browser output for wide and vertical crops when requested. An attractive poster is not evidence that the world works. Never promise virality or invent trend statistics.
+
+## 6. Verify both the floor and the creative result
+
+Use [quality-rubric.md](references/quality-rubric.md) and [validation-playbook.md](references/validation-playbook.md). Run code checks, inspect real screenshots, play the route and try abnormal input transitions. The bundled browser probe is optional; use the environment's approved browser tools if it cannot run. Do not install an automation stack just to claim compliance.
+
+Measure before optimizing: same device, viewport, route, quality setting, warmup and sampling duration. Record frame-time distribution, total draw calls including shadow/post passes, pixel ratio and asset transfer. Separate measured facts from proposed budgets. Batch only static parts; preserve animated roots, interaction targets and display backs. Cap renderer **and composer** resolution together. Retest the busiest relevant views after optimizing.
+
+For design review, have a newcomer explain where to go and what changed after an action. If no independent visitor is available, label the walkthrough as agent review. Collect evidence for novelty and pacing, not a manufactured numeric "fun score". Fix identified blockers, confirm affected paths, then stop; don't keep ornamenting a passing build.
+
+## 7. Check the complete release diff and hand off
+
+```sh
+node <skill>/scripts/check-world.mjs scope --base origin/main --allow public/world --allow scripts/check-world.mjs
+```
+
+Replace base and allow paths with the recorded agreement. Refresh the remote base when access is available. The scope check includes committed changes since merge-base, staged/unstaged changes and untracked files; it never changes git state. Inspect any unexpected path or ancestor commit. Do not widen the allowlist to make a contaminated branch pass. Preserve unrelated work on its branch; isolate the world changes, then recheck.
+
+Report the route, implemented signature interaction, content coverage, measured results, actual QA evidence and remaining limitations. Distinguish designed / implemented / browser-verified / independently playtested. Commit/push/PR/deploy only within the user's authorization. A valid plan or clean screenshot alone is not release readiness.
+
+## References on demand
+
+- [world-design.md](references/world-design.md): divergence, topology, encounter rhythm, embodied information and creative critique.
+- [spatial-craft.md](references/spatial-craft.md): interior/exterior construction and failure-to-test patterns from the Ship.
+- [sharing-and-evidence.md](references/sharing-and-evidence.md): actual-play capture, entry/return, metadata and launch evidence.
+- [architecture-patterns.md](references/architecture-patterns.md): modules, data, deployment and performance.
+- [interaction-state-machine.md](references/interaction-state-machine.md): input ownership, overlays, recovery, touch.
+- [example-content-site-to-world.md](references/example-content-site-to-world.md): reference case; adapt the process, never clone the theme.
+- [quality-rubric.md](references/quality-rubric.md): hard blockers and human review.
+- [validation-playbook.md](references/validation-playbook.md): browser coverage, diagnostics and handoff.

@@ -2,7 +2,7 @@
 
 **A portable agent skill that turns a website into an explorable 3D world.**
 
-Point any capable coding agent — Claude Code, Codex, Cursor — at this repo, and it gains a disciplined, end-to-end workflow for turning a portfolio, research site, product page, or docs into a polished, first-person 3D experience: real navigation, modeling, a HUD, onboarding, interaction, browser QA, and an update path you can maintain.
+Point any capable coding agent — Claude Code, Codex, Cursor — at this repo, and it gains a disciplined, end-to-end workflow for turning a portfolio, research site, product page, or docs into a polished, explorable 3D experience: real navigation, modeling, a HUD, onboarding, interaction, browser QA, and an update path you can maintain.
 
 It starts from the site's own content and code, so you do not need a separate MCP server, asset pack, or 3D starter kit. Built on Three.js or a similar web-3D stack.
 
@@ -12,7 +12,7 @@ It starts from the site's own content and code, so you do not need a separate MC
 
 **[The Ship — RV CHIP-01 →](https://www.hichipli.com/ship/)**
 
-A first-person research vessel built from [hichipli.com](https://www.hichipli.com/) with this exact skill. Walk the gallery of projects, browse publications from a console, look out the windows at the system outside. Every fact on the flat site is in there — just spatial. That's the bar this skill aims for.
+A first-person research vessel built from [hichipli.com](https://www.hichipli.com/). Its repeated modeling, interaction and layout refinements inform this skill. Explore projects, publications and the surrounding system. Use it as a craft reference, not a template every world should copy.
 
 This reference started as a conventional personal academic website and became a first-person research vessel. The side-by-side view below shows the source site and the explorable world it became.
 
@@ -27,6 +27,7 @@ This reference started as a conventional personal academic website and became a 
       
 https://github.com/user-attachments/assets/474593c5-1d2b-423b-9ac5-be605ce661c1
 
+    </td>
   </tr>
 </table>
 
@@ -39,10 +40,10 @@ Read https://github.com/hichipli/websites-to-worlds-skills (start with AGENTS.md
 then use the websites-to-worlds skill to turn THIS website into a mature,
 content-complete, explorable 3D world under a subpath.
 
-Before building anything, look at my site and ASK me a few short questions to
-lock the brief — world theme/metaphor, which subpath, scope, must-have vs
-optional content, and target devices. Offer concrete options with a recommended
-default so I can just pick. Only start building after I confirm.
+Inspect my content and release boundary first. Ask about material missing
+constraints; honor decisions I already supplied. Compare three distinct
+concepts, then build one meaningful interaction before expanding the world.
+Preserve the normal site and keep required information directly readable.
 
 (Optional — fill in if you already know what you want, otherwise leave blank
 and let the agent ask:)
@@ -52,7 +53,7 @@ and let the agent ask:)
 - Devices:
 ```
 
-The agent reads the skill straight from GitHub, asks a few clarifying questions, and only builds once you confirm. Nothing to download.
+The agent reads the skill from GitHub and clarifies missing constraints. An already agreed brief does not trigger another approval round. Nothing to install manually.
 
 **Already have the skill installed?** (see below) Just say:
 
@@ -86,20 +87,46 @@ skills/websites-to-worlds/
   SKILL.md                         ← the workflow + the contract the agent must satisfy
   agents/openai.yaml               ← Codex metadata
   references/
+    world-design.md               ← concepts, topology, pacing and meaningful actions
+    spatial-craft.md               ← coherent construction and common geometry failures
+    sharing-and-evidence.md        ← actual-play moments, attribution and sharing
     architecture-patterns.md       ← file layout, modules, data flow, performance
     interaction-state-machine.md   ← pointer lock, overlays, pause, map, touch states
     example-content-site-to-world.md← the end-to-end Ship build, generalized
     quality-rubric.md              ← pass/fail checklist before handoff
     validation-playbook.md         ← browser QA, interaction matrix, screenshots, perf review
+  assets/                          ← example plan and independent content inventory
+  evals/evals.json                  ← fresh-context planning and repair tasks
   scripts/
+    check-world.mjs                ← plan integrity and whole-branch scope checks
     probe-three-scene.mjs          ← Playwright smoke test (screenshots, console, debug stats)
 ```
 
 ## How it works
 
-The skill enforces a contract — the **brief is confirmed before building**, content stays **complete**, the world is **playable**, it's **self-orienting**, it **ships where the site ships**, and it's **verified, not asserted**. It opens by locking the brief with you (theme, subpath, scope, devices), then walks the agent through the build: ground in the real repo, choose a spatial metaphor, design architecture, build a playable greybox, add mature world feel, present long content through game-grade UI, keep updates easy, and validate like a game build.
+Bedrooms, studies, gardens, cities, street corners, cafes and cinemas are all valid settings. A single quiet room is a complete scope; no science-fiction style, first-person camera, multiple rooms or game mechanism is required. Physical examples are conditional construction lessons, not mandatory shapes.
 
-Reference files load progressively, so the agent reads architecture detail when it's laying out files and the validation playbook when it's running QA — not all at once.
+Version 0.2 separates **a reliable quality floor** from **creative decisions**. Content coverage, input recovery, coherent geometry and release scope are constraints. Topology, primary action, reveal and the human details should emerge from the site's subject. A research station, a repair workshop and a living archive should not be the same corridor with new labels.
+
+The workflow compares three directions, builds one playable slice, expands the content, then reviews the real experience. References load when relevant. Small executable checks catch missing content, disconnected plans and unrelated branch changes; they do not certify beauty or fun.
+
+### Check a plan or release boundary
+
+```sh
+node skills/websites-to-worlds/scripts/check-world.mjs plan \
+  skills/websites-to-worlds/assets/world-plan.example.json \
+  --inventory skills/websites-to-worlds/assets/content-inventory.example.json
+
+# Run from the website repository; replace paths with the agreed scope.
+node /path/to/skill/scripts/check-world.mjs scope \
+  --base origin/main --allow public/world
+```
+
+The source inventory must enumerate real canonical records independently of the new world. The scope check includes earlier commits since the merge base and local changes. Neither command mutates the website.
+
+### Maintain and evaluate
+
+Run `node tests/check-world.test.mjs` with Node.js 18+. The optional browser probe requires an existing Playwright installation; no game runtime or mandatory browser dependency is bundled. Use `evals/evals.json` for fresh-context comparisons, then validate actual built worlds separately. See [research and evaluation notes](docs/skill-design-research.md) for sources, observed results and limits.
 
 ## Scope
 

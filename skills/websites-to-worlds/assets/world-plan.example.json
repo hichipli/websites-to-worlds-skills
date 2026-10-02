@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "brief": {
+    "route": "/tides/",
+    "home": "/",
+    "playerPromise": "Read a changing estuary through the instruments of the people studying it."
+  },
+  "direction": {
+    "topology": "A short loop from the landing to an instrument deck and back along a sheltered walkway",
+    "verb": "Compare",
+    "signature": "Align two observation periods and watch their recorded salinity profiles separate above the water",
+    "whyThisContent": "The spatial comparison makes an existing field study legible; it invents no scientific findings."
+  },
+  "spawn": "landing",
+  "zones": [
+    {
+      "id": "landing",
+      "purpose": "Meet the researcher, choose direct reading or exploration",
+      "landmark": "Field notebook beside a lit tide gauge"
+    },
+    {
+      "id": "deck",
+      "purpose": "Compare the published observations",
+      "landmark": "Suspended data ribbons"
+    }
+  ],
+  "connections": [
+    {
+      "from": "landing",
+      "to": "deck",
+      "gated": false
+    }
+  ],
+  "stations": [
+    {
+      "id": "directory",
+      "zone": "landing",
+      "kind": "panel",
+      "access": "direct",
+      "contentIds": [
+        "bio",
+        "study:salinity",
+        "contact"
+      ]
+    },
+    {
+      "id": "compare",
+      "zone": "deck",
+      "kind": "action",
+      "access": "optional",
+      "contentIds": [
+        "study:salinity"
+      ],
+      "action": "Select two documented observation periods",
+      "feedback": "Labeled ribbons separate and the numeric difference is announced in the DOM",
+      "stateChange": "The selected comparison remains visible until changed",
+      "reset": "Restore the initial pair or exit without saving"
+    }
+  ],
+  "beats": [
+    {
+      "atSeconds": 0,
+      "zone": "landing",
+      "action": "Choose explore or read directly",
+      "reward": "An understandable purpose and exit"
+    },
+    {
+      "atSeconds": 25,
+      "zone": "deck",
+      "action": "Compare two periods",
+      "reward": "The first visible data transformation"
+    },
+    {
+      "atSeconds": 70,
+      "zone": "landing",
+      "action": "Return to the study and researcher",
+      "reward": "Understand the source behind the spectacle"
+    }
+  ],
+  "share": {
+    "zone": "deck",
+    "hook": "One adjustment separates two documented tidal profiles",
+    "returnUrl": "/",
+    "capture": "A real 12-second interaction, then the study attribution; reframe for portrait rather than shrinking the HUD"
+  },
+  "budget": {
+    "device": "Agreed reference laptop; measure before locking budgets",
+    "viewport": [
+      1440,
+      900
+    ],
+    "pixelRatio": 1.5,
+    "frameTimeP95Ms": 33.3,
+    "drawCalls": 200,
+    "transferMb": 12
+  }
+}
