@@ -6,7 +6,7 @@ You are an AI coding agent and someone pointed you at this repository. This file
 
 A portable **skills collection**. Today it ships exactly one skill — `websites-to-worlds` — under `skills/websites-to-worlds/`; more may be added under `skills/<name>/` later. If the user names a skill, match it against the directories in `skills/`.
 
-The `websites-to-worlds` skill encodes the full engineering path for turning an existing website (portfolio, research site, product page, docs, content library) into a polished, content-complete, **explorable 3D web world** — first-person navigation, modeling, a HUD, onboarding, interaction, browser QA, and a maintainable update path. Built around Three.js or a similar web-3D stack.
+The `websites-to-worlds` skill encodes the full engineering path for turning an existing website (portfolio, research site, product page, docs, content library) into a polished, content-complete, **explorable 3D web world** — appropriate navigation, modeling, readable controls, onboarding, interaction, browser QA, and a maintainable update path. Built around Three.js or a similar web-3D stack.
 
 This repo contains **instructions and small validation tools, not a game runtime**. There is no app to start here. You apply the skill inside the user's project.
 

@@ -27,7 +27,7 @@ world/
       map.js
 ```
 
-Adapt names to the concept, but keep the boundaries. The main route should link into the world without losing its own purpose.
+This is an example, not required scaffolding. Combine or omit files and systems for a small scene; use only the boundaries the project needs. The main route should link into the world without losing its own purpose.
 
 For static hosts and GitHub Pages, verify the exact deployed path early:
 
@@ -45,7 +45,7 @@ For static hosts and GitHub Pages, verify the exact deployed path early:
 
 ## World Model
 
-Use meters and a top-down layout:
+Choose units and a spatial representation appropriate to the scale and camera. For example, a walkable interior might use:
 
 - `ROOMS`: bounds, height, display name, whether it counts toward tour progress.
 - `SPAWN`: start position and yaw.
@@ -53,14 +53,14 @@ Use meters and a top-down layout:
 - `colliders`: simple AABBs or a proper physics representation.
 - `interactables`: targets, prompt, position, radius, zone, and action.
 
-Place interaction and readability before decoration. A beautiful room that hides the main terminal fails the task.
+Place interaction and readability before decoration. The intended content and activity should be easy to find from the chosen visitor viewpoints.
 
 ## Content Placement
 
 - Use 3D consoles, plaques, screens, objects, and windows as orientation and story.
 - Use DOM panels for long-form reading, tables, links, publication lists, forms, and accessible copy.
 - Face important screens toward the likely approach path.
-- Keep at least a small offset between coplanar planes to avoid z-fighting.
+- Remove accidental duplicate surfaces; give deliberately layered surfaces appropriate separation to avoid z-fighting.
 - Do not place signs, posters, or emitters in door gaps or window openings.
 
 ## Modeling And Assets
@@ -76,7 +76,7 @@ Every external asset must be accounted for: path, license or source, loading beh
 
 ## Interaction Model
 
-A mature web 3D scene usually needs:
+Select only the systems this experience needs. A seated room, orbitable garden, cinema and walkable city need different controls; none requires FPS movement, a HUD, map, audio or progress tracking merely to satisfy this list:
 
 - Title or boot state.
 - `playing`, `panel`, `map`, `pause`, and fallback states.
@@ -130,7 +130,7 @@ Values may be approximate, but they must be JSON-serializable and safe to call f
 
 ## Main Site Integration
 
-For a subpath world attached to an existing site:
+For a subpath world attached to an existing site, within the agreed change scope:
 
 - Add one primary entry and one contextual entry, not a noisy set of unrelated CTAs.
 - Add return links from landing, pause/help, and at least one in-world panel.

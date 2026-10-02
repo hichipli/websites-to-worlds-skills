@@ -2,7 +2,7 @@
 
 **A portable agent skill that turns a website into an explorable 3D world.**
 
-Point any capable coding agent — Claude Code, Codex, Cursor — at this repo, and it gains a disciplined, end-to-end workflow for turning a portfolio, research site, product page, or docs into a polished, first-person 3D experience: real navigation, modeling, a HUD, onboarding, interaction, browser QA, and an update path you can maintain.
+Point any capable coding agent — Claude Code, Codex, Cursor — at this repo, and it gains a disciplined, end-to-end workflow for turning a portfolio, research site, product page, or docs into a polished, explorable 3D experience: real navigation, modeling, a HUD, onboarding, interaction, browser QA, and an update path you can maintain.
 
 It starts from the site's own content and code, so you do not need a separate MCP server, asset pack, or 3D starter kit. Built on Three.js or a similar web-3D stack.
 
@@ -103,6 +103,8 @@ skills/websites-to-worlds/
 ```
 
 ## How it works
+
+Bedrooms, studies, gardens, cities, street corners, cafes and cinemas are all valid settings. A single quiet room is a complete scope; no science-fiction style, first-person camera, multiple rooms or game mechanism is required. Physical examples are conditional construction lessons, not mandatory shapes.
 
 Version 0.2 separates **a reliable quality floor** from **creative decisions**. Content coverage, input recovery, coherent geometry and release scope are constraints. Topology, primary action, reveal and the human details should emerge from the site's subject. A research station, a repair workshop and a living archive should not be the same corridor with new labels.
 

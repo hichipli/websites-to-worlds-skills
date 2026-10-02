@@ -4,7 +4,7 @@ Run validation after implementation and after meaningful visual changes.
 
 ## Plan and Release Scope
 
-Run `check-world.mjs plan world-plan.json --inventory content-inventory.json` before building. Build the inventory independently from canonical source files; expand every required collection record. The example JSON files under `assets/` demonstrate the format, not a reusable theme. Connections are bidirectional, and `gated: true` means optional prerequisites. Station `access: direct` means no puzzle or achievement is needed. A connected graph does not prove collision clearance or implemented content parity: verify both in the browser.
+Run `check-world.mjs plan world-plan.json --inventory content-inventory.json` before building. Build the inventory independently from canonical source files; expand every required collection record. The example JSON files under `assets/` demonstrate the format, not a reusable theme. Connections are bidirectional, and `gated: true` means optional prerequisites. A single-zone scene needs no connections (`[]`). Panel-only plans are valid for reading/observation; action details are checked only when an action is declared. Station `access: direct` means no puzzle or achievement is needed. A connected graph does not prove collision clearance or implemented content parity: verify both in the browser.
 
 Before committing or publishing, run `check-world.mjs scope --base <target-ref> --allow <world-path>` with every intended path explicitly listed. Refresh the target ref when appropriate. This checks the aggregate diff from the merge base through the working tree, plus untracked files, including earlier commits. It does not prove deployment configuration is safe; inspect changed configuration and the PR diff separately. Never expand the allowlist merely to silence unrelated changes.
 
@@ -83,7 +83,7 @@ The helper needs Playwright and a browser already available in the calling envir
 
 ## Interaction Regression Matrix
 
-Run these in a real browser after the main walkthrough. Record pass/fail and any console output:
+Run the rows relevant to implemented features in a real browser after the main walkthrough; mark others not applicable, and do not add controls or doors to satisfy this matrix. Record pass/fail and any console output:
 
 | Case | Expected result |
 | --- | --- |

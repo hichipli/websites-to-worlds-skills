@@ -17,7 +17,7 @@ Markdown remains the portable instruction format. The missing capability was not
 
 ## The design change
 
-The quality floor fixes content access, input recovery, coherent construction and release isolation. Creative choices vary topology, visitor action, reveal, silhouette and environmental storytelling. Three candidate directions must differ in experience, not simply colors. A single representative interaction gets built and reviewed before rooms multiply.
+The quality floor fixes content access, input recovery, coherent construction and release isolation. Creative choices vary topology, visitor action, reveal, silhouette and environmental storytelling. When the direction is open, compare a few genuinely different experiences rather than color variants; refine an already chosen place without a ritual concept contest. A single representative interaction gets built and reviewed before rooms multiply.
 
 Ship iteration failures informed the spatial repair reference: double glazing, unused shells, detached supports, coplanar flicker, screen backs, door motion, obstructed signage, lost instrument content and stuck movement. These are transferable failure patterns; the pet, ship and layout are not required templates.
 
@@ -46,3 +46,11 @@ The baseline was not poor: it already offered usable content mapping and meaning
 - Syntax checks for both scripts; skill frontmatter validation with the skill-creator validator.
 
 No new world was built or playtested during this skill revision. Probe diagnostic decisions were exercised without launching a browser; the changed browser harness still needs an integration run in a supported Playwright environment. Before claiming a reliable increase in visual quality or visitor engagement, build representative slices in at least two genres, inspect desktop/touch behavior and real captures, and observe newcomers without coaching. The focused repair prompt is supplied for future regression evaluation and is not claimed as an executed agent trial.
+
+## Generality review before release
+
+A follow-up review found over-specific rules despite the stated creative freedom: a single transparent boundary, compulsory graph connections, and a required state-changing action. These are removed. Purposeful double glazing and layered architecture remain valid; one-zone reading/observation plans can have no connections or mechanism. Physical defect examples are conditional. Documentation explicitly supports bedrooms, studies, gardens, street corners, cafes, cinemas and cities across everyday, historical, natural, stylized, fantastical or futuristic aesthetics. Architecture and QA lists are selected according to the brief, not mandatory systems.
+
+The runnable checker now includes a valid single-zone, panel-only study and still rejects an action missing its promised feedback. This separates structural correctness from a preference for a particular genre or mechanic.
+
+A fresh-context seated-study trial used the approved single-bedroom brief, five content records and an intentional double-glazed garden window. The agent retained one fixed seated room, both glass panes, direct DOM reading and an empty connections array, with no extra rooms, walking tutorial, game or science-fiction styling. Its provisional plan passed the structural checker. It explicitly left canonical source parity, browser behavior and performance unverified.

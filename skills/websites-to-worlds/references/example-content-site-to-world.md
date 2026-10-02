@@ -1,5 +1,6 @@
 # Example: Content Site to Explorable World
 
+This is one vessel-shaped case study, not the default form, camera, material palette or room list for other worlds. Transfer source mapping, clear access and verification; derive the place itself from its brief.
 Use this reference when building a content-rich personal site, portfolio, research profile, product site, or documentation site as a 3D world. Do not copy the theme blindly; copy the engineering path.
 
 ## Live Build

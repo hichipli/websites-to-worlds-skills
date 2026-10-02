@@ -7,6 +7,16 @@ import { checkPlan, checkScope } from '../skills/websites-to-worlds/scripts/chec
 const read = name => JSON.parse(readFileSync(new URL(`../skills/websites-to-worlds/assets/${name}.example.json`, import.meta.url)));
 const plan = read('world-plan'), inventory = read('content-inventory');
 assert.deepEqual(checkPlan(plan, inventory), []);
+// A quiet single room needs neither connections nor a mechanism.
+const study = structuredClone(plan);
+study.zones = [study.zones[0]];
+study.connections = [];
+study.stations = [study.stations[0]];
+study.beats = [study.beats[0]];
+study.direction = { topology: 'One seated study', verb: 'Read', signature: 'Books beside a garden window', whyThisContent: 'A quiet setting for the author archive' };
+assert.deepEqual(checkPlan(study, inventory), []);
+const badAction = structuredClone(plan); delete badAction.stations[1].feedback;
+assert(checkPlan(badAction, inventory).some(e => e.includes('feedback')));
 const missing = structuredClone(plan); missing.stations[0].contentIds.pop();
 assert(checkPlan(missing, inventory).some(e => e.includes('contact')));
 const gated = structuredClone(plan); gated.stations[0].zone = 'deck'; gated.connections[0].gated = true;

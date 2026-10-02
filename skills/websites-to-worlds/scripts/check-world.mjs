@@ -12,7 +12,8 @@ export function checkPlan(plan, inventory) {
   if (!plan || typeof plan !== 'object' || !Array.isArray(inventory?.items)) return ['Expected a plan object and an independent inventory.items array.'];
   const lists = {};
   for (const name of ['zones', 'connections', 'stations', 'beats']) {
-    need(Array.isArray(plan[name]) && plan[name].length > 0, `${name} must be a nonempty array.`);
+    need(Array.isArray(plan[name]), `${name} must be an array.`);
+    if (name !== 'connections') need(Array.isArray(plan[name]) && plan[name].length > 0, `${name} must be nonempty.`);
     lists[name] = Array.isArray(plan[name]) ? plan[name] : [];
   }
   const ids = (items, label) => {
@@ -66,7 +67,6 @@ export function checkPlan(plan, inventory) {
     if (station?.kind === 'action') for (const key of ['action', 'feedback', 'stateChange', 'reset']) need(text(station[key]), `Action ${station.id}: ${key} is required.`);
   }
   for (const source of inventory.items) if (source?.required) need(covered.has(source.id), `Required content has no ungated direct station: ${source.id}.`);
-  need(lists.stations.some(s => s?.kind === 'action'), 'Include a world action with a visible state change, not only panels.');
   let previous = -1;
   for (const beat of lists.beats) {
     need(Number.isFinite(beat?.atSeconds) && beat.atSeconds >= 0 && beat.atSeconds >= previous, 'Beats need nonnegative, ordered atSeconds.');

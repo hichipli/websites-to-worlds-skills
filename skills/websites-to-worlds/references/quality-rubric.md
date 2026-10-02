@@ -1,12 +1,12 @@
 # Quality Rubric
 
-Use this before final handoff. Record evidence or mark unverified; do not self-award a numeric quality score. Missing required content, trapped input, inaccessible reading, broken routes or unrelated release changes block release regardless of visual polish.
+Use this before final handoff. Apply checks only to features the brief actually includes; absence of rooms, windows, maps, audio or game mechanics is not a defect. Record evidence or mark unverified; do not self-award a numeric quality score. Missing required content, trapped input, inaccessible reading, broken routes or unrelated release changes block release regardless of visual polish.
 
 ## Creative Review
 
 - Explain why the chosen topology and main action belong to this subject. Compare the rejected alternatives; changing colors or room names is not a different concept.
-- A visitor can describe one memorable action and its visible consequence. Opening text alone does not satisfy this.
-- Arrival, first success, reveal and a quieter return form a readable sequence. Timing targets are hypotheses until tested with newcomers.
+- The visitor can identify what makes the intended experience worthwhile: an action and consequence, a reading position, a view, a listening moment or another subject-specific quality. Do not require a minigame in a quiet space.
+- When a discovery sequence is intended, arrival, first success, reveal and return form a readable sequence; quiet/free-form settings need not follow that arc. Timing targets are hypotheses until tested with newcomers.
 - At least one human detail comes from real source context, without inventing biography or copying the Ship's pet into unrelated worlds.
 - Required information has a direct accessible route independent of optional challenges.
 - Review actual play and screenshots for composition, circulation and the exterior silhouette; JSON validation cannot judge these.
@@ -23,8 +23,8 @@ Use this before final handoff. Record evidence or mark unverified; do not self-a
 ## Player Experience
 
 - The first screen tells the user what the world is and how to start.
-- The first 30 seconds teach movement, looking, and interaction.
-- The user can always find controls, map/directory, pause/settings, and exit/back.
+- The introduction teaches only the controls this experience uses; no walking tutorial is required for a seated view.
+- The user can always find relevant controls, direct content access and exit/back; provide map, pause or settings only where useful.
 - Interactables are visible, reachable, and named by prompt.
 - Every major zone has a reason to exist and a clear affordance.
 - Mobile/touch behavior is either supported or explicitly handled with a fallback.
@@ -32,8 +32,8 @@ Use this before final handoff. Record evidence or mark unverified; do not self-a
 ## Visual Maturity
 
 - A dedicated visual polish pass happened after the playable greybox, not before.
-- Materials have roughness, texture, seams, wear, or construction logic.
-- Materials use maps, procedural noise, CanvasTexture detail, or simple atlases where flat colors make the world feel unfinished.
+- Material treatment supports the chosen aesthetic, whether physically based, stylized, hand-painted or intentionally flat.
+- Use maps or geometric detail where they improve the intended appearance; plain colors are valid when deliberate.
 - Lighting supports navigation and mood without washing out screens.
 - Screens and signs face the expected player approach.
 - Signs are readable at the intended approach distance and are not occluded by props, door frames, particles, or bloom.
@@ -69,7 +69,7 @@ Use this before final handoff. Record evidence or mark unverified; do not self-a
 ## Red Flags
 
 - A 3D hero exists, but most requested information is missing.
-- The world has only decoration and no real interaction.
+- The experience promises interactive behavior that is absent or broken; intentional observation is not a failure.
 - The agent handwaves assets instead of providing or generating them.
 - The experience depends on an external CDN when the deployment constraints require static self-hosting.
 - The world breaks when data grows.
