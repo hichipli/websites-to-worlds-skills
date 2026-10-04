@@ -14,22 +14,7 @@ It starts from the site's own content and code, so you do not need a separate MC
 
 A first-person research vessel built from [hichipli.com](https://www.hichipli.com/). Its repeated modeling, interaction and layout refinements inform this skill. Explore projects, publications and the surrounding system. Use it as a craft reference, not a template every world should copy.
 
-This reference started as a conventional personal academic website and became a first-person research vessel. The side-by-side view below shows the source site and the explorable world it became.
-
-<table>
-  <tr>
-    <td width="50%">
-      <a href="https://www.hichipli.com/">
-        <img src="docs/assets/hichipli-source-site.jpg" alt="Open the original hichipli.com academic homepage before the 3D world transformation" width="100%">
-      </a>
-    </td>
-    <td width="50%">
-      
-https://github.com/user-attachments/assets/474593c5-1d2b-423b-9ac5-be605ce661c1
-
-    </td>
-  </tr>
-</table>
+https://github.com/user-attachments/assets/e5bc33d0-d0fe-492b-a5f5-43dec775fa0c
 
 ## Quick start — no install
 
